@@ -1,6 +1,8 @@
 // Shared Tailwind theme for RP Hub, the character workshop and the novel editor.
 // Palette steps read CSS variables from theme.css, so dark mode only swaps variables
 // instead of overriding individual utility classes.
+// Play CDN 未载入时也不让本文件抛错（仅影响主题配色，不影响应用启动）
+if (typeof tailwind === 'undefined') { window.tailwind = { config: {} }; }
 (function () {
     const steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
     const rgb = name => `rgb(var(--${name}) / <alpha-value>)`;
